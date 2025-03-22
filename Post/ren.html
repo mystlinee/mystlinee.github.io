@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            line-height: 1.6;
+        }
+
+        .header {
+            margin-bottom: 48px;
+        }
+
+        .site-title {
+            font-family: 'Alegreya Sans SC', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 4px; /* 调小标题和日期的间距 */
+        }
+
+        .date {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        main {
+            font-size: 16px; /* 设定Markdown内容字体大小 */
+            line-height: 1.5; /* 默认一般是 1.6，可以调小 */
+            font-weight: 400;
+        }
+
+        main p {
+            margin-bottom: 22px; /* 段落之间的间距 */
+        }
+
+        main img {
+            width: 100%;         /* 控制图片宽度 */
+            display: block;     /* 独占一行 */
+            margin: 30px auto;  /* 居中并增加上下间距 */
+        }
+
+        blockquote {
+            border-left: 4px solid #999;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #555;
+            font-style: italic;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">人民大学站（上）</h1>
+        <p class="date">2019-7-27</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+5月24日上午从家里出发，中午到了武汉，在麦当劳点了一份价值不菲的套餐，悠闲地坐着给手机和耳机充了一会儿电，估摸着时间大概差不多了，便慢慢悠悠地坐上去天河机场的地铁。一个多小时后达到了机场才发现自动取票已经取不出来了，提前起飞时间40分钟，也就是3:15时，取票就已经结束了。工作人员让我赶紧去人工柜台取票，我连忙慌慌张张地跑到人工柜台，工作人员让同事帮我取MU2499的票，他同事看着电脑说：“2499已经登机了，取不了了”。这下我真的慌了，但紧接着他同事又说可以取，帮我出了一张，让我赶紧拿着去登记，并说安检不要排队了。
+
+我一路冲到安检处，看到前面长长的队，虽然有点害怕，但还是直接钻过所有的隔离带，跑到了第一个，我说我的飞机马上就要起飞了，能让我马上过去吗，工作人员让我问后面的乘客，当然，也没有谁会说出不同意。在接下来的一些排队流程里，我也插了队，最终完全过了安检后，马上背着书包提着行李箱一路向前冲，一边气喘吁吁地跑，一边找着22号登机口。
+
+很不幸，22号是我能看见的最远的登机口。
+
+高中时1000m的感觉又回来了，我坚持着冲到22号登机口，却发现没人排队。航班延误了。大概等了几十分钟，然后顺利起飞了。
+
+简单评测一下乘坐体验，座位空间还行，全程发了一杯水，一个面包。面包口感一般，没有夹心，只能打5分。最开始看到前面的人发了果汁，以为我也有，后来才知道那是头等舱，打扰了。
+
+刚穿越到云层上时，窗外景色还不错，快到大兴机场时，正赶上日落，天气灰蒙蒙的，光线散射更加明显，日光透过云层，投射在平原上，非常壮观。
+
+<img src="images/ren2.jpg">
+
+大兴机场出发的地铁有一段是在地面上，恰好赶上了日落的最后一刻。
+
+<img src="images/ren3.jpg">
+
+<br>
+
+<img src="images/ren5.jpg">
+
+也许是因为距离北京市区很远，在车上看窗外的天空很不错，很通透，高处的天空很蓝，一团团的白云轮廓非常清晰，接近地平线时蓝色的天空被染成金黄色和橘色，色彩对比很舒服，可惜没拍下来，等想拍的时候列车已经要进入地下了，只匆匆忙忙拍了一张，对焦都没对上，但是色彩让我觉得非常舒服。
+
+<img src="images/ren4.jpg">
+
+大概是八点多，看到地铁到了人民大学站，我知道自己终于可以休息一会儿了。下车，吃了一顿烤肉（我给7分吧，还不错，酱料味道尚可，肉也还可以），最后回到了zzk的家。顺带一提，我走到出站口，时隔一年多看到zzk的那一刻——还是那个熟悉的zzk，一点没变。
+
+晚上修了修白天拍的风景和晚餐后等车时给zzk随手拍的几张照片（希望zzk的女生室友能给他晚上发的朋友圈点个赞），十二点多就睡了。不过睡觉质量我只能给1分。天气算是比较热了，zzk竟然还在用厚棉被，盖上棉被不至于，但不盖被子风又很大，关了窗子又太热太闷，于是在盖与不盖的反复交替中，度过了第一晚。
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+        <section class="recent-posts">
+            <h2 class="section-title">Recent Writing</h2>
+
+            <article class="post" data-tags="杂谈">
+                <time class="post-date">2021-05-29</time>
+                <a href="Post/juan.html" class="post-title">人民大学站（上）</a>
+            </article>
+
+            <article class="post" data-tags="生活">
+                <time class="post-date">2019-09-09</time>
+                <a href="Post/hardy.html" class="post-title">HARDY'S MIND HACKS一日游</a>
+            </article>
+
+            <article class="post" data-tags="杂谈">
+                <time class="post-date">2019-07-27</time>
+                <a href="Post/juan.html" class="post-title">卷着的报纸</a>
+            </article>
+
+        </section>
