@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="icon" href="resources/icon.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300..900&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            line-height: 1.6;
+        }
+
+        .header {
+            margin-bottom: 64px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .site-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+        }
+
+        .site-title {
+            font-family: 'Alegreya Sans SC', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .site-description {
+            color: #000;
+            font-size: 15px;
+            margin-top: 16px;
+            margin-bottom: 64px;
+            font-weight: 400;
+        }
+
+        .topics {
+            margin-bottom: 48px;
+        }
+
+        .topic-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .section-title {
+            font-family: 'Alegreya Sans SC', sans-serif;
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .topic-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .post {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .post-date {
+            color: #999;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .post-title {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .post-title:hover,
+        .topic-link:hover {
+            color: #666;
+        }
+
+        .topics .section-title,
+        .recent-posts .section-title {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <div class="header-content">
+            <img class="site-logo" src="resources/icon.jpg" alt="Logo">
+            <h1 class="site-title">Notes</h1>
+        </div>
+        
+        <p class="site-description">
+            Here are some of my personal notes and thoughts. 
+            The website logo is from ‘Museum’ by Elyon. Most of the beats are Nujabes and Premier influence.
+        </p>
+    </header>
+
+    <main>
+        <section class="topics">
+            <h2 class="section-title">Topics</h2>
+            <div class="topic-links">
+                <a class="topic-link" data-tag="all">All</a>
+                <a class="topic-link" data-tag="工作">工作</a>
+                <a class="topic-link" data-tag="杂谈">杂谈</a>
+                <a class="topic-link" data-tag="生活">生活</a>
+            </div>
+        </section>
+
+        <section class="recent-posts">
+            <h2 class="section-title">Recent Writing</h2>
+
+            <article class="post" data-tags="生活">
+                <!-- <time class="post-date">2025</time> -->
+                <a href="#" class="post-title">灯前一觉江南梦 惆怅起来山岳斜</a>
+            </article>
+
+            <article class="post" data-tags="工作">
+                <!-- <time class="post-date">2025</time> -->
+                <a href="Post/work.html" class="post-title">何以为工作</a>
+            </article>
+
+            <article class="post" data-tags="杂谈">
+                <!-- <time class="post-date">2025</time> -->
+                <a href="#" class="post-title">最美后朋在哪里</a>
+            </article>
+
+            <article class="post" data-tags="杂谈">
+                <!-- <time class="post-date">2025</time> -->
+                <a href="#" class="post-title">奇普里安蜂蜜大教堂 (Ciprian Honey Cathedral)</a>
+            </article>
+
+            <article class="post" data-tags="杂谈">
+                <!-- <time class="post-date">2025</time> -->
+                <a href="#" class="post-title">梅雨の日: 当时只道是寻常</a>
+            </article>
+
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const topicLinks = document.querySelectorAll('.topic-link');
+            const posts = document.querySelectorAll('.post');
+
+            topicLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const selectedTag = link.getAttribute('data-tag');
+
+                    posts.forEach(post => {
+                        const postTags = post.getAttribute('data-tags').split(',');
+
+                        if (selectedTag === 'all' || postTags.includes(selectedTag)) {
+                            post.style.display = 'flex';
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
