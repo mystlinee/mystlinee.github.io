@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Walking out</h1>
+        <p class="date">2021-01-11</p>
+        <p class="tag">记录</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+走出去。
+
+人需要生命力，而我觉得生命力来自于对外界的感知。
+
+如果一个人长期处在一个比较局限的环境里，对外界的感知又非常有限，时间久了之后可能会渐渐失去“感知外界”的能力或者是热情，而变得麻木——即使有很大的压力，或者是对未来有清晰的规划和追求，却依然提不起精神，机械般地重复着每一天。
+
+记得上高中的时候，因为我本身对学习的内容挺感兴趣，所以平时我并没有类似麻木的感觉。我总是思考着一些问题，可能这些时常占据着我的大脑的问题让我不至于失去“活力”。即便如此，有些时候，我还是会感觉有些疲惫，我记得有时我会抽空到操场上走走，暂时放下的社会角色——一个忙碌备考中的高三学生，在课外活动时看高一高二的学生们在操场上踢球，散步，或者三三两两坐在一起谈论着什么。也许感受到别人的“生命力”时，自己也会重拾这种热情，每次这样放松一下后，心情都会好不少。
+
+除此之外，保持对学习的热情也很有帮助。我记得高考的那一年，我还在追番，那时暗杀教室还在连载。本身我从初中开始对数学就很感兴趣，暗杀教室第一季还是第二季的最后一集讲的是karma Akabane和主校区第一名在最终考试里的角逐。到数学考试时，硬是把做题这种“无聊”的过程拍成了堪比3A大作里打BOSS一般刺激的决斗，我特地倒回去看了几遍题目，Akabane的解法当时让我觉得十分惊艳，那时我突然觉得，原来解一道题目可以这么attractive。
+
+于是这便成了我之后学习的又一动力来源之一。
+
+有时我还会期待大学生活，觉得做一个Researcher是一个很酷的东西，向往大学里新的友谊和自由。
+
+现在我大学毕业了，回过头看看，大学过得并不是那么如意，有很多东西我没有珍惜，没有体验。但也不差，很多时候也挺开心的，可能用遗憾来形容比较合适吧——过得还可以，但是有更多的美好我没有去争取。人总是慢慢成长的，遗憾过后，有机会的话，在之后的时间里好好争取吧。
+
+毕业后，对于很多东西我又有了新的认知，现实让我看到之前的很多幻想都是不切实际的，最终自己也只是一个普通到不能再普通的人。虽然知道大多数人都是如此，并且有一个普通的生活已经非常来之不易了，但心里总会有一些落差，于是对生活的热情可能不复从前。
+
+这时也许我需要的就是出去走一走。从过往的生活中我学到，不要把自己拘泥在一个地方，一个社交圈。这样很容易陷入一些“死胡同”。比如现在，每天都不出门，半夜睡觉，每天聊天的也都是固定的那些人，那些话题。其实这样是非常不利的，长期单调的环境很容易让人失去活力，失去目标，失去动力。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">神农架</h1>
+        <p class="date">2012-12-31</p>
+        <p class="tag">生活</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+说是在旅馆玩mc的感觉，仔细想来，第一家的旅馆的环境也给加了不少分。如同日式旅馆一般：木质地板，结构紧凑，一边窗外是正门朝向的宽阔的前院，另一边朝向的依稀记得是一条满是大石块的涧溪，旅馆恰好在一侧的山腰，但落差也不过十来米，可能也有数十米吧，唯一记得清的，就是从窗户向溪流望过去时，仿佛感觉到窗子在岩壁上，房间在岩壁里一般，树枝从四面映入眼里。 
+
+记得那时候第一天晚上，大人去楼上打牌，我便留在房间自由自在。小时候即使玩到很晚，但想到大人还没有休息，总觉得时候尚早。若是大人休息了，自己玩的时候总是不安心，想到还要自己拿捏时间，总是苦恼。而一旦大人们也闲聊到很晚，自己便可以完全放松了：还有大人没睡呢。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Pay for it：快乐需要付出代价</h1>
+        <p class="date">2021-11-28</p>
+        <p class="tag">记录</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+We have to pay for it
+
+快乐是需要付出代价的，尤其是对长大的人来说：这个代价也许是时间，也许是金钱，也许两者皆需
+
+就像摄影，得花钱买喜欢的镜头和相机，买喜欢的画册，得花时间去看别人的作品，学习拍摄创意剪辑后期，去想去的地方，拍想拍的东西。就像做饭，得花钱买自己喜欢的厨具，花时间去学习做菜，去采购食材，精心准备——这一切在当初我看别人做时，觉得无聊且浪费时间，但自己花费精力去做后，有体会到了快乐（主要是之前做的太难吃了，然后买的新装备我很喜欢，精致小巧）。就像穿搭，自己也要花时间去学习，更要花钱去准备，花精力去尝试各种风格，各种色彩搭配，各种叠加——这是非常简单但效果明显的技巧，能让平平无奇的单品组合出非常不错的效果。就像看剧/书/电影，最开始总是不愿意去开始，但看花时间到中途或者后半段，又会发现根本停不下来，到最后感叹：真是一部精彩的作品。就像写code，花费时间精力最终写成后，回过头来会有一种奇妙的成就感与惊叹。
+
+* 我有很多的兴趣点，而日常的一些事物中，会有很多“无聊”的事情里，可能会包含我的兴趣点，只不过我没有发现，或者说没有去寻找并发现它的意识。
+* 得到快乐也是需要付出时间或者金钱的，如果觉得什么都没有意思，有可能是自己连寻找快乐，为感受到快乐而付出的想法都没有
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>

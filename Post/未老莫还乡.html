@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">未老莫还乡</h1>
+        <p class="date">2020-12-31</p>
+        <p class="tag">杂谈</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+老人们讲的那些真理，虽然小孩子也会讲，可是对于老人来说，这些真理包含着他全部生活的意义。即使这小孩也懂这些内容，可是对他来说，在这些真理之外，还存在着全部生活和整个世界。
+
+书本上的道理千真万确，我知道它是对的，但是内心真的能做到认同吗？
+
+一个从来没有走出过平庸的人，真的能甘愿接受平庸吗？一个从来没有离开过家乡的人，真的能认识到家乡全部的美好吗？就像贾樟柯说的，只有离开故乡，才能获得故乡。
+
+有一个观点和这也有点相似，只专注于一个事物，反而无法认识到它的全貌。一个人没有经历过惊涛骇浪，风雨飘摇，又怎么能真正明白和风熙日，安常守故的美好，并接受与享受它们呢？
+
+所以劝一个人从一开始就放弃出走，放弃去经历，放弃旅居他乡，放弃追求曾经在他脑海里出现过的景色，是做不到的。即使做到了，他也绝不能做到如同一个归乡的浪客一般接受，享受，并无比热爱家乡和旁人可能无法理解的平凡和平庸。
+
+很多事情都是这样。一个不懂坏姐姐的人，也不会知道好妹妹的好。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>

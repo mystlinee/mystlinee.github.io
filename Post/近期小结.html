@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">近期小结</h1>
+        <p class="date">2021-01-19</p>
+        <p class="tag">记录</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+在元旦的时候，由于某些inspiration，近一年多以来，竟然难得地过了大概一周左右的时间，后来又回归正常了。
+
+我觉得还可以继续下去，有着inspiration，一旦开始，也就不那么难了。
+
+我还想反思一下自己的心理状态，年轻人还是不能贪图娱乐享受，不能“活在当下”。今后还来日方长，我也不知道自己的想法会发生什么变化，还是给未来留下更多的空间和选择吧。
+
+由于网上的一些言论和风气，我渐渐觉得我做的这些事情，包括工作“都不算什么”。这是不对的，我还是应该找回大学时候工作时的那种自豪感。
+
+另外，更细致地感受生活吧，想想高中时候自己对未来的想象。今天我其实已经满足了大部分了。那时的我用着不知道多少年前的卡得要死的台式机，连接VPN后在chrome上发现和收藏了很多东西，想着自己有笔记本电脑后会有着怎样更广阔的天空。现在我用着苹果全家桶，基本都是最新和最好的设备，但我好像已经失去了那时候的那种“感觉”。也许是“乱花渐欲迷人眼”，沉静下来，想想自己想要的吧，想想高中时候的自己在午后坐在老旧的台式机前，用网页播放器听着歌时，脑子里对未来有着怎样的期待。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>
