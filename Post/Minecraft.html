@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Minecraft</h1>  <!-- 这里添加题目 -->
+        <p class="date">2017-04-27</p>  <!-- 这里添加日期 -->
+        <p class="tag">生活</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+中午把床帘拉上，躺在床上随机播放到Sweden，把声音开得很大，感觉整个世界都充满了它。
+
+回想起了高耸的悬崖边突兀的巨石上的小木屋，热带雨林高大茂密的树顶上的房子，海底岩石下的居住洞穴，海边沙滩上的别墅，一个人等待海上日出，在雨林最高的树上看太阳渐渐落下去，雨天在高山上听着淅沥的雨声看山峦起伏，雷雨时的夜晚在昏暗的小屋子里静静地收拾着一天得到的东西，有时在矿洞里放张床，呆几天几夜，有时在家里摆满不知道有什么用的新鲜玩意儿。
+
+我如果我还在，这时会做些什么呢？在雨天或是夜里行走，在晴空下劳作，在雷电交加的夜晚躺在床上。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

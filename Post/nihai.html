@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">你还会看到多少次满月升起</h1>
+        <p class="date">2021-07-07</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+因为我们不知道死亡何时降临，我们才会以为生命是一口永不枯竭的井。然而每件事情都只会发生一个特定的次数，一个很少的次数，这是真的。
+
+你还会想起多少次童年的那个特定的下午，那个已经深深成为你生命一部分，没有它你便无法想象自己人生的下午。也许还有四五次，也许更少。你还会看到多少次满月升起？也许是二十次，然而我们却总觉得这些都是无穷的。
+
+(保罗鲍尔斯《遮蔽的天空》)
+
+>“Because we don't know when we will die, we get to think of life as an inexhaustible well. Yet everything happens only a certain number of times, and a very small number really. How many more times will you remember a certain afternoon of your childhood, an afternoon that is so deeply a part of your being that you can't even conceive of your life without it? Perhaps four, five times more, perhaps not even that. How many more times will you watch the full moon rise? Perhaps 20. And yet it all seems limitless.”
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

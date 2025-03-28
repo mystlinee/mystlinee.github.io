@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">摄影杂谈：消失的构图</h1>
+        <p class="date">2021-07-06</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+我拍摄一直没有构图，或者是在凭借“直觉”构图，我之前觉得无所谓，只要表达到位了就好了，但其实不好，实际上放弃构图会限制我的表达能力。一个好的 idea 需要一个好的展示形式。
+
+我非常喜欢 Alex Webb 的 idea，他的照片很美，但这不仅仅是在南美街头捕捉到的那些客观事实赋予的（尽管它们确实很重要），更重要的可能是他的“创造”能力，他对于如何表达这些事实的选择，即浓烈的色彩，复杂的构图。
+
+我觉得“形式”，“内容”，和 idea，是相辅相成，互相启发的，所以不能放弃任何一个。
+
+我之前忽略形式，现在应该弥补一下这方面的缺陷。学一下怎么通过形式，把最没意思的东西拍得有意思，比如：
+
+1. Editing：找到一个理想的主体后，运用一些技巧“去除”或者“添加”一些东西，让画面更美。比如虚化，比如遮挡……这些技巧应该在很多构图学相关的资料中有提及
+2. Composing：从纯粹几何的角度出发，先找到形式，再去找”主体“（形式就是主体）
+
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

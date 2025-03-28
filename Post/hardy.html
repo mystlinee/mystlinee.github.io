@@ -7,68 +7,17 @@
     <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 48px 24px;
-            line-height: 1.6;
-        }
-
-        .header {
-            margin-bottom: 48px;
-        }
-
-        .site-title {
-            font-family: 'Alegreya Sans SC', sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 4px; /* 调小标题和日期的间距 */
-        }
-
-        .date {
-            font-family: 'Lato', sans-serif;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
-            font-weight: 300;
-        }
-
-        main {
-            font-size: 16px; /* 设定Markdown内容字体大小 */
-            line-height: 1.5; /* 默认一般是 1.6，可以调小 */
-            font-weight: 400;
-        }
-
-        main p {
-            margin-bottom: 22px; /* 段落之间的间距 */
-        }
-
-        main img {
-            width: 60%;         /* 控制图片宽度 */
-            display: block;     /* 独占一行 */
-            margin: 16px auto;  /* 居中并增加上下间距 */
-        }
-
-    </style>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header class="header">
-        <h1 class="site-title">HARDY'S MIND HACKS一日游</h1>
-        <p class="date">2019-9-9</p>  <!-- 这里添加日期 -->
+        <h1 class="site-title">HARDY'S MIND HACKS 一日游</h1>
+        <p class="date">2019-09-09</p>
+        <p class="tag">生活</p>
     </header>
-
     <main id="content">
         <!-- Markdown 渲染内容将在这里显示 -->
     </main>
-
     <script>
         const markdownContent = 
 `
@@ -82,7 +31,7 @@ Today BONUS
 
 首先这个banner image不错，这种从树林走出， 从前景到远景的纵深感我很喜欢，色调也十分不错，不过这个场景是不是《你的名字》中的？我看过几段预告，有点印象。不知道宽宽知道后会不会把它换掉，因为这和他hardcore tech的主题显然不符
 
-ok，下面这段话在我意料之中，尤其是“ I am currently studying for B.Eng at Southeast University ”。一看宽宽就看了很多prof的主页，这个currently用的十分巧妙独到，每次读到 I am currently 时，一位学术大神的形象仿佛就跃然屏上了
+ok，下面这段话在我意料之中，尤其是" I am currently studying for B.Eng at Southeast University "。一看宽宽就看了很多prof的主页，这个currently用的十分巧妙独到，每次读到 I am currently 时，一位学术大神的形象仿佛就跃然屏上了
 
 接下来，几段经历描述，中规中矩，没什么特别的
 
@@ -91,16 +40,20 @@ ok，下面这段话在我意料之中，尤其是“ I am currently studying fo
 因为以前套暑研时我看过宽宽的CV，所有大致有个印象，但我心中隐隐感觉，按照宽宽搞什么追求高质量（装逼）的精神，过着这么久，肯定会有什么不同
 
 首先：
-<img src="images/hardy_1.png" alt="第一张图片">
+
+<img src="images/hardy_1.png" alt="第一张图片" style="width: 400px;">
 
 嗯，中规中矩。还没往下看，我就猜到有一段经历他已经迫不及待地写在了CV上，往下一拉，果不出所料：
-<img src="images/hardy_2.png" alt="第二张图片">
+
+<img src="images/hardy_2.png" style="width: 400px;">
 
 联想到之前跟我说了数次的重修大物，我预料到GPA也应该在第一时间更新：
-<img src="images/hardy_3.png" alt="第三张图片">
+
+<img src="images/hardy_3.png" style="width: 400px;">
 
 但是，让我意想不到的来了：
-<img src="images/hardy_4.png" alt="第四张图片">
+
+<img src="images/hardy_4.png" style="width: 400px;">
 
 宽哥这一下让我有些猝不及防：
 
@@ -111,13 +64,8 @@ ok，下面这段话在我意料之中，尤其是“ I am currently studying fo
 我万万没想到，你tm回头自己就给自己注明一个 Quantitative 168
 
 向行为艺术家致敬
-
 `;
-
         document.getElementById('content').innerHTML = marked.parse(markdownContent);
     </script>
-
-
-
 </body>
 </html>

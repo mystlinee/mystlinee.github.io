@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">一些过去的味道</h1>  <!-- 这里添加题目 -->
+        <p class="date">2021-03-04</p>  <!-- 这里添加日期 -->
+        <p class="tag">生活</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+### 其一
+
+<img src="images/IMG_3858.jpg" style="width: 300px;">
+
+这个味道很远，我记不起来是初中还是高中，也有部分可能是大学本科。闻到这个味道，我会变得很安静，然后问自己，这是哪个学生生涯中的记忆呢？很可能是初中吧，谈起初中，不知道为什么，想到的第一幕总是在午后。初中运动会时，下午我们会坐在塑胶跑道旁单双杠的附近玩魔方，下五子棋，打牌，或者闲聊；高中时为了逃离乏闷，我会在草稿纸上写写画画，有时画小表情，有时写几句诗，或者歌词。当然，排忧解难最好的去处莫过于我的活页本，记得某天放两小时假的时候，我特地嘱咐我妈打印一张我精挑细选的某张专辑的照片，夹在我的本子里，因为那张照片让我想起 *Beautiful*，而这首歌能带我重新回到在901的日子。
+
+虽然是比996还辛苦忙碌的贫瘠生活，我在高中时其实还有很多乐子，不过都只与我自己有关，我还是挺能自娱自乐的。我写了好几本“作文本”，中英都有，又在Kindle上看了不少书，在网上的活动更是丰富了，用各种插件精心打造了一个属于自己的chrome，又收藏了很多有意思的网站和视频，得益于Google，现在还能找到一些那时候的踪迹。类似的还有很多，不过大都是自己玩得很开心而已。那时候这些东西会让我的高中生活有点期待和希望。
+
+### 其二
+
+<img src="images/IMG_5302.jpg" style="width: 300px;">
+
+空调房；二机站的办公室；西安；神龙架旅游的酒店餐馆
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

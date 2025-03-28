@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">自走棋</h1>
+        <p class="date">2020-11-18</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+### 其一
+<br>
+
+快速战运气成份非常大，必须有非常足够的技巧，或许才能部分弥补运气的不足。
+
+这个游戏的理解无非：
+
+1. 装备分配（很重要）
+2. 站位
+3. 阵容选择
+4. 运营
+<br>
+
+其中3有一些技巧，比如：
+1. 观察别人阵容，从而确定自己的选择
+2. 选择合适的阵容，这里涉及到：
+    * 运营难度
+    * 成型难度
+    * 各个时期强度
+    * 装备依赖程度
+    * 站位难度
+<br>
+
+除此之外，也没有什么特别的地方了。游戏上限并不高，一个运气主导的游戏，上限一般都不会特别高。
+
+打到全国190名，百分之90+前三率和百分之50～60+的第一率，上分挺快的，但感觉没什么意思了，也没有新的发现了，大家都水平差不多是天花板了。
+
+枯燥了，不玩了。
+
+<br>
+
+### 其二
+<br>
+
+从最开始到现在，我学到了什么？
+
+最初我发现长城射是一个很强的阵容，因为：
+1. 玩的人相对不多，没太多人抢拍
+2. 前中后期强度相当，前中期战士很厉害，后期射手输出非常高
+3. 难度低，只需要拿长城牌就行了
+
+依靠阵容优势，我很少输。
+
+后来我发现打不过一些有些微差别的同行，原因是他们的羁绊更好，比如有6战。于是我才用了标准8人（6长城6战）+额外人口的阵容
+
+但后来分段高了之后我发现几个问题：
+1. 后期强度主要靠鲁班，高分段拿鲁班的人很多，导致后期没有射手主c，强度不够，没有高额输出，无法对抗法师和攻辅射这种相对较肉的阵容
+2. 大后期满装备射手是绝对的王者（面对刺客除外），如果仅仅采用鲁班和伽罗两个满装射手，可能输出会乏力
+
+于是，我又改进了策略：
+根据对面阵容的不同来选择最后一个人上谁，并且灵活更换，该丢弃就要丢弃。比如后期的三星钟无艳的效果肯定比满射手装二星黄忠要弱。这一点是我最近才意识到的
+
+关于运营思路就这么多了，临场发挥时，养成不要提前摆站位的习惯也很重要。
+
+射手一定要往后放，正对着敌方阵容。有时紧靠着第二排，放置到偏远的一侧的话，有时会被骗站位，或者死太早。
+
+* 防守方更有优势：干脆把射手放在最后一排，所有战士放在射手前一排的位置。当进攻方是被动的
+
+
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

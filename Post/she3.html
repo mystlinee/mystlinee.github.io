@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">摄影杂谈：拍摄什么</h1>
+        <p class="date">2021-02-23</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+之前有人拿书法作为例子，说不管写的文字的内容是什么，写它的方式，即书法本身就具有美感，然后说摄影也是如此，形式即美感。
+
+很多时候确实是这样的，形式可以带来美感，但对于可能更喜欢人文题材的我来说（风光没机会拍），我可能更追求内容，更想将摄影作为一种艺术形式来表达自己。
+
+看了罗伯特弗兰克的《美国人》后，我更有这样的冲动，我想我需要足够细腻，去感受和表达一些东西。它可以是宏大的，也可以是细微的，可以是一座城，一个时代，也可以是一个人，一个时刻。
+
+对于摄影师，最重要的就是能看到四周的眼睛和感受外界的心，而要培养这种直觉，不仅仅要学习摄影本身，对于艺术文史的要求也同样非常高。
+
+### 2/24
+
+今天有了新的思考，起因是我拍了两张我自己真的觉得“有内容”的街拍，是一个中年人在星湖湾门口摆的玩具地摊。
+
+下午出去的时候我拍了一张，玩具整整齐齐，无人问津。晚上回来的时候他还在那，正好另一个大叔在那里看，从他们的谈话间我知道了玩具十块钱一个，他买走了一个，这时我拍下了第二张。
+
+后期时，我甚至不想用自己的那些预设，因为我觉得颜色作为一种“形式”干扰了内容。
+
+我突然又想学习“街拍”。因为我觉得那两张我拍得并不够好，它有好的内容，但是它的形式是如此糟糕，以至于如果拿给一个对内容没有共鸣的人来说，这张照片就是“谷歌验证码”水平。我想要好的形式，来吸引观众去看这些照片，这样他们有才可能注意到内容。
+
+照片乏力吗？摄影已经过时了吗？视频无疑是更好地表达内容的媒介，但是照片也应该有它的独特之处吧？下次再聊这一点
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">摄影杂谈：我喜欢什么样的摄影</h1>
+        <p class="date">2021-07-06</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+这是个好问题，这两天看了Stephen Shore的一些画册，Joel Meyerowitz在纽约的一些街拍，和Fred  Herzog的 Modern Color ，关于照片的细节等到我看完Stephen的另一本书之后再说，我有一些直观的感受。
+
+照片很好看，胶片的色彩很舒服，很多照片画面中的元素并不少，但是感觉一点也不杂乱。对比我之前看过的一些索尔雷特的照片，他们的照片都有着吸引人的色彩，但相比之下索尔雷特的照片更“简洁”，更多的是一种纯粹的视觉上的美（就我看过的一些而言，我还没有系统地看过索尔雷特的画册）。
+
+不同于之前看过的索尔雷特的照片，这两天我看过的Stephen Shore，Joel Meyerowitz和Fred  Herzog的照片中有着更多的元素和更丰富的细节。这不仅给了我视觉享受，还能让我有机会感受和了解到别的东西，比如照片中的故事和情绪。我观看这些照片时往往会回想起自己的一些经历，不仅是现实中的，也包括之前看过的书，电影，图片，游戏等，这种体验让我更能去欣赏这些细节丰富的照片。这挺有意思，因为它意味着，如果我想最大程度地从欣赏摄影作品中获得愉悦，不仅摄影师要努力拍，我也要努力过好或者丰富我自己的生活，这样去欣赏作品时，才能获得更多的快乐。其实这跟之前讨论的有关“审美”的话题有相似性，本质上这就是一个提高审美的过程。人为什么要提高审美？因为一个高级的审美意味着能它能欣赏更多的美，于是变能在更广阔的世界里发现更多的美好的事物，获得更多的快乐，而提高审美的途径就是多看多学。
+
+还是说回照片，我喜欢这些细节丰富，能让我感受到故事性和情绪的作品，但是得建立在能给我视觉享受的基础上。比如我对一些叙事性太强的人文纪实摄影，或者新闻摄影的感觉就比较平淡，相比从摄影中去了解叙事，我可能更倾向于看一篇文字报道或者一部纪录片。另外我对彩色摄影情有独钟，作为一种强烈的表达方式，色彩对情绪的影响非常大，巧妙的运用会带来出乎意料的视觉效果和情感表达。
+
+我对黑白摄影了解的并不多，只是略有耳闻。上世纪，在摄影发展的初期大家对彩色摄影普遍感到不屑，认为色彩很俗，并不是严肃的摄影，后来在一众彩色摄影先驱的努力下，彩色摄影才逐渐被大家接受，但始终有摄影师在拍摄黑白摄影，比如一些网上很出名的摄影师森山大道，杉本博司，何藩等。我也看过他们的一些照片，以及他们自己的摄影哲学，我觉得非常有意思，我也很喜欢，黑白和彩色的确是两个世界，看一种看久了，突然转换到另一种会感觉很不适应，但慢慢也会发现它的魅力。色彩能够给予照片一些东西，但也会剥夺到一些东西，而这些可能在黑白摄影里能够找回。
+
+Stephen Shore最近还在Instagram发照片，而且在展览里ins拍的照片就放在手机里展示，手机就放在展厅里，想看的直接在手机上看。其实现在绝大多数照片都是在通过手机被观看，我的照片也基本都发在Instagram这种社交平台上，这就带来一个问题，面对这样的展示平台：小屏幕手机，竖屏，我们应该拍摄什么样的照片，让展示效果最好？可以想想。
+
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>

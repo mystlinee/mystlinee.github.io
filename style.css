@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    line-height: 1.6;
+}
+.header {
+    margin-bottom: 48px;
+}
+.site-title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 4px; /* 调小标题和日期的间距 */
+}
+.date {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #666;
+    /*margin-bottom: 16px;*/
+    font-weight: 300;
+}
+.tag {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+main {
+    font-size: 15px; /* 设定Markdown内容字体大小 */
+    line-height: 1.6; /* 默认一般是 1.6，可以调小 */
+    font-weight: 400;
+}
+main p {
+    margin-bottom: 22px; /* 段落之间的间距 */
+}
+main img {
+    width: 100%;         /* 控制图片宽度 */
+    display: block;     /* 独占一行 */
+    margin: 16px auto;  /* 居中并增加上下间距 */
+}
+
+blockquote {
+    border-left: 4px solid #999;
+    padding-left: 16px;
+    margin: 16px 0;
+    color: #555;
+    font-style: italic;
+}

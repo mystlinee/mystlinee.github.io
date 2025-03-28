@@ -1,15 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes</title>
-    <link rel="icon" href="resources/icon.jpg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300..900&display=swap" rel="stylesheet">
-
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notes</title>
+<link href="resources/icon.jpg" rel="icon" type="image/jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&amp;family=Alegreya+Sans+SC:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300..900&amp;display=swap" rel="stylesheet"/>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -108,75 +107,197 @@
         .recent-posts .section-title {
             margin-bottom: 20px;
         }
+        
+        /* 文章容器样式 */
+        .posts-wrapper {
+            position: relative;
+        }
+        
+        .posts-container {
+            height: 300px; /* 固定高度，容纳5个文章 */
+        }
+        
+        /* 分页样式 */
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .page-number {
+            color: #333;
+            cursor: pointer;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 4px 8px;
+        }
+        
+        .page-number.active {
+            font-weight: 700;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-
-        <div class="header-content">
-            <img class="site-logo" src="resources/icon.jpg" alt="Logo">
-            <h1 class="site-title">Notes</h1>
-        </div>
-        
-        <p class="site-description">
+<header class="header">
+<div class="header-content">
+<img alt="Logo" class="site-logo" src="resources/icon.jpg"/>
+<h1 class="site-title">Notes</h1>
+</div>
+<p class="site-description">
             Here are some of my personal notes and thoughts. 
-            The website logo is from ‘Museum’ by Elyon. Most of the beats are Nujabes and Premier influence.
+            The website logo is from 'Museum' by Elyon. Most of the beats are Nujabes and Premier influence.
         </p>
-    </header>
-
-    <main>
-        <section class="topics">
-            <h2 class="section-title">Topics</h2>
-            <div class="topic-links">
-                <a class="topic-link" data-tag="all">All</a>
-                <a class="topic-link" data-tag="工作">工作</a>
-                <a class="topic-link" data-tag="杂谈">杂谈</a>
-                <a class="topic-link" data-tag="生活">生活</a>
-            </div>
-        </section>
-
-        <section class="recent-posts">
-            <h2 class="section-title">Recent Writing</h2>
-
-            <article class="post" data-tags="生活">
-                <time class="post-date">2021-05-29</time>
-                <a href="Post/ren.html" class="post-title">人民大学站（上）</a>
-            </article>
-
-            <article class="post" data-tags="生活">
-                <time class="post-date">2019-09-09</time>
-                <a href="Post/hardy.html" class="post-title">HARDY'S MIND HACKS一日游</a>
-            </article>
-
-            <article class="post" data-tags="杂谈">
-                <time class="post-date">2019-07-27</time>
-                <a href="Post/juan.html" class="post-title">卷着的报纸</a>
-            </article>
-
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const topicLinks = document.querySelectorAll('.topic-link');
-            const posts = document.querySelectorAll('.post');
-
-            topicLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    const selectedTag = link.getAttribute('data-tag');
-
-                    posts.forEach(post => {
-                        const postTags = post.getAttribute('data-tags').split(',');
-
-                        if (selectedTag === 'all' || postTags.includes(selectedTag)) {
-                            post.style.display = 'flex';
-                        } else {
-                            post.style.display = 'none';
-                        }
+</header>
+<main>
+<section class="topics">
+<h2 class="section-title">Topics</h2>
+<div class="topic-links">
+<a class="topic-link" data-tag="all">All</a>
+<a class="topic-link" data-tag="工作">工作</a>
+<a class="topic-link" data-tag="杂谈">杂谈</a>
+<a class="topic-link" data-tag="生活">生活</a>
+<a class="topic-link" data-tag="记录">记录</a></div>
+</section>
+<section class="recent-posts">
+<h2 class="section-title">Recent Writing</h2>
+<div class="posts-wrapper">
+<div class="posts-container" id="posts-container">
+<!-- 文章将通过JavaScript动态添加 -->
+</div>
+<div class="pagination" id="pagination"></div>
+</div>
+</section>
+</main>
+<script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+        // 文章数据
+        const postData = [
+            {date: "2024-03-25", url: "Post/近期思考.html", title: "近期思考", tags: "记录"},
+            {date: "2023-07-05", url: "Post/shangdi.html", title: "上帝存在吗", tags: "杂谈"},
+            {date: "2023-06-08", url: "Post/you.html", title: "唯一需要的只是欲望", tags: "杂谈"},
+            {date: "2021-07-07", url: "Post/nihai.html", title: "你还会看到多少次满月升起", tags: "杂谈"},
+            {date: "2021-07-06", url: "Post/she1.html", title: "摄影杂谈：消失的构图", tags: "杂谈"},
+            {date: "2021-07-06", url: "Post/she2.html", title: "摄影杂谈：我喜欢什么样的摄影", tags: "杂谈"},
+            {date: "2021-03-04", url: "Post/template.html", title: "一些过去的味道", tags: "生活"},
+            {date: "2021-02-23", url: "Post/she3.html", title: "摄影杂谈：拍摄什么", tags: "杂谈"},
+            {date: "2020-11-18", url: "Post/zizouqi.html", title: "自走棋", tags: "杂谈"},
+            {date: "2019-09-09", url: "Post/hardy.html", title: "HARDY'S MIND HACKS 一日游", tags: "生活"},
+            {date: "2019-07-27", url: "Post/ren.html", title: "人民大学站（上）", tags: "生活"},
+            {date: "2019-07-27", url: "Post/juan.html", title: "卷着的报纸", tags: "杂谈"},
+            {date: "2017-04-27", url: "Post/Minecraft.html", title: "Minecraft", tags: "生活"}
+        ];
+        
+        // 获取容器元素
+        const postsContainer = document.getElementById('posts-container');
+        const pagination = document.getElementById('pagination');
+        
+        // 设置每页显示的文章数量
+        const postsPerPage = 8;
+        
+        // 计算总页数
+        const totalPosts = postData.length;
+        const totalPages = Math.ceil(totalPosts / postsPerPage);
+        
+        // 创建文章元素
+        function createPostElement(post) {
+            const article = document.createElement('article');
+            article.className = 'post';
+            article.setAttribute('data-tags', post.tags);
+            
+            const time = document.createElement('time');
+            time.className = 'post-date';
+            time.textContent = post.date;
+            
+            const link = document.createElement('a');
+            link.className = 'post-title';
+            link.href = post.url;
+            link.textContent = post.title;
+            
+            article.appendChild(time);
+            article.appendChild(link);
+            
+            return article;
+        }
+        
+        // 创建分页元素
+        function createPagination(totalPages, currentPage, filteredPosts) {
+            pagination.innerHTML = '';
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const pageNumber = document.createElement('a');
+                pageNumber.href = '#';
+                pageNumber.textContent = i;
+                pageNumber.classList.add('page-number');
+                
+                if (i === currentPage) {
+                    pageNumber.classList.add('active');
+                }
+                
+                pageNumber.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(i, filteredPosts);
+                    
+                    // 更新active类
+                    document.querySelectorAll('.page-number').forEach(num => {
+                        num.classList.remove('active');
                     });
+                    pageNumber.classList.add('active');
                 });
+                
+                pagination.appendChild(pageNumber);
+            }
+        }
+        
+        // 显示特定页的文章
+        function showPage(pageNumber, posts) {
+            postsContainer.innerHTML = '';
+            
+            const startIndex = (pageNumber - 1) * postsPerPage;
+            const endIndex = Math.min(startIndex + postsPerPage, posts.length);
+            
+            for (let i = startIndex; i < endIndex; i++) {
+                const postElement = createPostElement(posts[i]);
+                postsContainer.appendChild(postElement);
+            }
+        }
+        
+        // 处理标签筛选
+        function handleTagFilter(tag) {
+            let filteredPosts;
+            
+            if (tag === 'all') {
+                filteredPosts = postData;
+            } else {
+                filteredPosts = postData.filter(post => post.tags === tag);
+            }
+            
+            const filteredTotalPages = Math.ceil(filteredPosts.length / postsPerPage);
+            
+            // 更新分页
+            createPagination(filteredTotalPages, 1, filteredPosts);
+            
+            // 显示第一页
+            showPage(1, filteredPosts);
+            
+            return filteredPosts;
+        }
+        
+        // 绑定标签点击事件
+        const topicLinks = document.querySelectorAll('.topic-link');
+        
+        topicLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const selectedTag = link.getAttribute('data-tag');
+                handleTagFilter(selectedTag);
             });
         });
-    </script>
+        
+        // 初始化显示
+        createPagination(totalPages, 1, postData);
+        showPage(1, postData);
+    });
+</script>
 </body>
 </html>

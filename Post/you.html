@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">唯一需要的只是欲望</h1>  <!-- 这里添加题目 -->
+        <p class="date">2023-06-08</p>  <!-- 这里添加日期 -->
+        <p class="tag">杂谈</p>  <!-- 这里添加日期 -->
+    </header>
+
+    <main id="content">
+        <!-- Markdown 渲染内容将在这里显示 -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+有时候，人需要的是 desire something 的状态，而不是 obtain what we desire 这个结果。
+
+人喜欢一个另一个人，他爱上的是“喜欢她”这个状态，实际上并不是“得到她”这个结果。在拉康的语境里，人总是需要活在对某些东西的强烈的欲望中。一旦他得到了她，他就脱离了这个“欲望着某物”的状态，而这也许才是真正吸引他的东西。
+
+这里有一个比较 tricky 的问题：什么叫“得到”？有时候看似“得到”了，实际上并没有得到，这时欲望可能依旧得以维持。
+
+在齐泽克经典的例子中，一个人对自己情人爱得死去活来，最后决定和自己的妻子离婚，但他在离婚后马上痛苦地发现，自己不再爱那个情人：当失去他的妻子时，他同时也失去了他的情人。他所欲望的是情人这个符号，而不是那个具体的人，而情人只有在妻子存在时才存在，所以当她不再是情人，而变成妻子时，她不再占据情人这个位置，他也失去了对她的欲望。
+
+这个例子想说明的是，他所欲望的是欲望本身——他需要“情人”这样一个求之不得的对象来让自己产生欲望，“情人”此时是占据了欲望的位置的客体。
+
+人永远要面对的一个困境就是如何维持对某种东西的欲望，以此构成活下去的理由。你享受的其实就是这种“热烈地期待着某个东西”的感觉本身，而不是得到它。它让你短暂地从麻木平凡的生活中重新感受到期待和希望，一次又一次真切地感觉到自己的存在。
+
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+    </script>
+
+
+</body>
+</html>
