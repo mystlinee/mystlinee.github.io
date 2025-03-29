@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing</title>
+    <link rel="icon" href="../resources/icon.jpg" type="/image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Alegreya+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">认同和移情</h1>
+        <p class="date">2025-03-29</p>
+        <p class="tag">杂谈</p>
+    </header>
+
+    <main id="content">
+        <!-- Markdown rendered content will display here -->
+    </main>
+
+    <script>
+        const markdownContent = 
+`
+*Lacan on Love*里提到过两种对象选择，一种是依恋型对象选择，一种是自恋型对象选择。前者是曾经照顾我们，满足过我们最初需求的人，强调的是主体情感上的被爱、照顾、安全感的需求，比如说选择对象是为了稳定的关系、情感的依赖、心理上的温暖与支持；而后者是爱着另一个人眼中的自己，或者爱着自己眼中的另一个人（我=他者），他（她）是我们投射的理想自我。
+
+这里有两个比较极端化的例子：
+
+1. a爱上b，因为b很崇拜a，b眼中的a是a的理想自我。
+2. c爱上d，因为d独立自由勇敢，这是c缺乏的，但是d并不崇拜c，d眼中的c是一个普通人，不是c的理想自我。
+
+这两者有微妙的差别，但都是自恋型对象选择。在第一个例子中，b是一面作为中介的镜子，a爱上的是镜中自己的理想化形象，而在第二个例子中，d同样是一个中介，但不同的是，d提供的不是直接的镜像确认，而是通过与对象的认同或理想化的幻想间接地实现自恋满足，此时c借由爱上d去爱那个自己未实现的，理想化的自我。另外通过占有d，c幻想同样可以幻想自己的缺失得到了满足。
+
+在第一个例子中，a的对主体（自己）的认同是直接通过b确认的，在移情关系中，b占据了a心中“分析者”，即“假定知道的主体”这一位置，只有b处于这个位置时，来自于b的镜像确认才是有效的。
+
+在第二个例子中，c对主体的认同是通过认同理想自我d来实现的，在移情关系中，d占据了c心中理想自我的位置，通过爱上d，来反复进行自我确认。
+`;
+
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+    </script>
+</body>
+</html>
