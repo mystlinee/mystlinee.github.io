@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Diary</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+            letter-spacing: 0.5px;
+        }
+
+        .main-menu {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .menu-button {
+            background: transparent;
+            border: 1px solid #0366d6;
+            color: #0366d6;
+            padding: 15px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .menu-button:hover {
+            background: #0366d6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-menu">
+        <a href="post.html" class="menu-button">post</a>
+        <a href="view.html" class="menu-button">view</a>
+    </div>
+</body>
+</html>

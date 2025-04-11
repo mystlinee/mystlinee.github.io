@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 保持 head 部分相同，只更新 action-button 的样式 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        /* 保持其他样式不变 */
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --input-bg: white;
+            --button-bg: #000000;
+            --button-hover: #333;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --input-bg: #2d2d2d;
+            --button-bg: #2d2d2d;
+            --button-hover: #404040;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --shadow-hover: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+.theme-buttons {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-toggle,
+        .focus-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover,
+        .focus-toggle:hover {
+            background-color: var(--shadow-color);
+        }
+
+        .theme-toggle svg,
+        .focus-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        body.focus-mode .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        body.focus-mode .username-container,
+        body.focus-mode .button-container,
+        body.focus-mode .preview-section {
+            display: none !important;
+        }
+
+        body.focus-mode .editor-container {
+            width: 90%;
+            max-width: 800px;
+            height: 70vh;
+        }
+
+        body.focus-mode .writing-section {
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        body.focus-mode textarea {
+            height: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .editor-container {
+            width: 100%;
+        }
+
+        .editor-container.with-preview {
+            display: flex;
+            gap: 20px;
+        }
+
+        .writing-section,
+        .preview-section {
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .writing-section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .editor-container.with-preview .writing-section {
+            width: 50%;
+            margin-bottom: 0;
+        }
+
+        .preview-section {
+            display: none;
+            width: 50%;
+        }
+
+        .editor-container.with-preview .preview-section {
+            display: block;
+        }
+
+ textarea,
+.preview-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+textarea:focus,
+.preview-content:focus {
+    outline: none;
+}
+
+        input {
+            width: 100%;
+            height: 50px;
+            padding: 20px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 200;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 4px 12px var(--shadow-hover);
+        }
+
+
+/* 专注模式下调整容器大小 */
+body.focus-mode .editor-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;  /* 设置为60%宽度 */
+    height: 90vh;
+}
+
+/* 专注模式下文本框样式 */
+body.focus-mode textarea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 20px;
+    overflow: auto; /* 保留滚动行为 */
+    scrollbar-width: none; /* 针对 Firefox */
+    -ms-overflow-style: none; /* 针对 IE 和旧版 Edge */
+    -webkit-overflow-scrolling: touch; /* 平滑滚动 */
+}
+
+/* 针对 WebKit 浏览器（如 Chrome 和 Safari）的滚动条完全隐藏 */
+body.focus-mode textarea::-webkit-scrollbar {
+    width: 0px; /* 滚动条宽度设为 0 */
+    height: 0px;
+    display: none; /* 不显示滚动条 */
+}
+
+/* 针对 Firefox 的滚动条完全隐藏 */
+body.focus-mode textarea {
+    scrollbar-width: none; /* 隐藏滚动条 */
+}
+
+/* IE 和 Edge 的滚动条完全隐藏 */
+body.focus-mode textarea::-ms-scrollbar {
+    width: 0px; /* 滚动条宽度设为 0 */
+    display: none; /* 不显示滚动条 */
+}
+
+
+/* 彻底隐藏所有浏览器的滚动条 */
+body.focus-mode textarea::-webkit-scrollbar,
+body.focus-mode textarea::-webkit-scrollbar-track,
+body.focus-mode textarea::-webkit-scrollbar-thumb {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+}
+
+        .action-button {
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            width: 120px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background: var(--button-hover);
+        }
+
+        .action-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: flex-start;
+        }
+
+        .username-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<!-- 保持 body 部分完全相同 -->
+<body>
+    <div class="theme-buttons">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
+        <button class="focus-toggle" id="focusToggle" aria-label="Toggle focus mode">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="username-container">
+            <input id="username" type="text" placeholder="Welcome back, may I have your name?" />
+        </div>
+
+        <div class="editor-container" id="editorContainer">
+            <div class="writing-section">
+                <textarea id="content" placeholder="Write something today..." oninput="updatePreview()"></textarea>
+            </div>
+            
+            <div class="preview-section" id="previewSection">
+                <div class="preview-content" id="preview"></div>
+            </div>
+        </div>
+
+<div class="button-container">
+    <button class="action-button" onclick="submitEntry()">Post</button>
+    <button class="action-button" onclick="togglePreview()" id="previewToggle">Preview</button>
+    <button class="action-button" onclick="viewPosts()">View Posts</button>
+</div>
+
+    </div>
+
+    <script>
+        // 保持 JavaScript 部分完全相同
+        const supabaseUrl = 'https://wptwztxwbbqzleiinpug.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwdHd6dHh3YmJxemxlaWlucHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwMjcxNzYsImV4cCI6MjA1MTYwMzE3Nn0.N83fs47r_CvIqQINe2N7XxxHNiY2bc2e3RaiqgUZ8kc';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        marked.setOptions({
+            gfm: true,
+            breaks: true,
+            sanitize: false
+        });
+
+function viewPosts() {
+    window.location.href = 'view.html';
+}
+
+        function togglePreview() {
+            const toggleButton = document.getElementById('previewToggle');
+            const editorContainer = document.getElementById('editorContainer');
+            const isPreviewEnabled = editorContainer.classList.toggle('with-preview');
+            toggleButton.textContent = isPreviewEnabled ? 'Hide' : 'Preview';
+            if (isPreviewEnabled) {
+                updatePreview();
+            }
+        }
+
+        function updatePreview() {
+            const content = document.getElementById('content').value;
+            const preview = document.getElementById('preview');
+            const editorContainer = document.getElementById('editorContainer');
+            if (editorContainer.classList.contains('with-preview')) {
+                preview.innerHTML = marked.parse(content);
+            }
+        }
+
+        async function submitEntry() {
+            const usernameElement = document.getElementById('username');
+            const contentElement = document.getElementById('content');
+            const username = usernameElement.value.trim();
+            const content = contentElement.value.trim();
+
+            if (!username) {
+                alert('Please enter your username');
+                return;
+            }
+
+            if (!content) {
+                alert('Please write something first');
+                return;
+            }
+
+            const button = document.querySelector('.action-button');
+            button.disabled = true;
+            button.textContent = 'Posting...';
+
+            try {
+                const { data, error } = await supabase
+                    .from('posts')
+                    .insert([
+                        { 
+                            username: username,
+                            content: content,
+                            created_at: new Date().toISOString()
+                        }
+                    ]);
+
+                if (error) {
+                    console.error('Error posting entry:', error);
+                    throw error;
+                }
+
+                usernameElement.value = '';
+                contentElement.value = '';
+                alert('Post successful!');
+                window.location.href = 'view.html';
+            } catch (error) {
+                alert('Error: ' + error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Post';
+            }
+        }
+
+        document.getElementById('content').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.ctrlKey) {
+                submitEntry();
+            }
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // Set initial theme
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            updateThemeIcon(true);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            updateThemeIcon(isDark);
+        });
+
+        function updateThemeIcon(isDark) {
+            themeToggle.innerHTML = isDark 
+                ? '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>';
+        }
+
+        // Focus mode functionality
+        const focusToggle = document.getElementById('focusToggle');
+        
+        focusToggle.addEventListener('click', () => {
+            const body = document.body;
+            const isFocusMode = body.classList.toggle('focus-mode');
+            
+            // Update focus icon based on state
+            focusToggle.innerHTML = isFocusMode
+                ? '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>';
+
+            // If entering focus mode, also disable preview mode
+            if (isFocusMode) {
+                const editorContainer = document.getElementById('editorContainer');
+                editorContainer.classList.remove('with-preview');
+            }
+        });
+    </script>
+</body>
+</html>
